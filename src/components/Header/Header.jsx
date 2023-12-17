@@ -3,6 +3,7 @@ import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
 import cart from "../../assets/images/cart-shopping-solid.svg";
 import "./Header.scss";
+import { useSelector } from "react-redux";
 
 const navLinks = [
   {
@@ -24,6 +25,8 @@ const navLinks = [
 ];
 
 function Header() {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   return (
     <div className="header" style={{ display: "flex" }}>
       <div className="logo">
@@ -48,7 +51,7 @@ function Header() {
         <Link to="./cart">
           <img src={cart} alt="" />
         </Link>
-        <span>0</span>
+        <span>{totalQuantity}</span>
       </div>
     </div>
   );
