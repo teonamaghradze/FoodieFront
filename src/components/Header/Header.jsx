@@ -1,7 +1,7 @@
-import React from "react";
-import logo from "../../assets/data/images/res-logo.png";
+import React, { useEffect, useRef } from "react";
+import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
-import cart from "../../assets/data/images/cart-shopping-solid.svg";
+import cart from "../../assets/images/cart-shopping-solid.svg";
 import "./Header.scss";
 
 const navLinks = [

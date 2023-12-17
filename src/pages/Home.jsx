@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import heroImg from "../assets/data/images/hero (1).png";
+import heroImg from "../assets/images/hero (1).png";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
 
-import featureImg01 from "../assets/data/images/service-01.png";
-import featureImg02 from "../assets/data/images/service-02.png";
-import featureImg03 from "../assets/data/images/service-03.png";
+import featureImg01 from "../assets/images/service-01.png";
+import featureImg02 from "../assets/images/service-02.png";
+import featureImg03 from "../assets/images/service-03.png";
 import networkImg from "../assets/images/network.png";
 
 import products from "../assets/data/products.js";
@@ -16,6 +16,7 @@ import whyImg from "../assets/images/location.png";
 
 import ProductCard from "../components/UI/product-card/ProductCard";
 import "./Home.scss";
+import CostumersSlider from "../components/UI/slider/CostumersSlider.jsx";
 
 const featureData = [
   {
@@ -125,28 +126,28 @@ function Home() {
 
           <div>
             <button
-              className={`${category === "ALL" ? "active" : ""}`}
+              className={`${category === "ALL" ? "activeBtn" : ""}`}
               onClick={() => setCategory("ALL")}
             >
               All
             </button>
 
             <button
-              className={`${category === "BURGER" ? "active" : ""}`}
+              className={`${category === "BURGER" ? "activeBtn" : ""}`}
               onClick={() => setCategory("BURGER")}
             >
               <img src={foodCategoryImg01} alt="" />
               Burger
             </button>
             <button
-              className={`${category === "PIZZA" ? "active" : ""}`}
+              className={`${category === "PIZZA" ? "activeBtn" : ""}`}
               onClick={() => setCategory("PIZZA")}
             >
               <img src={foodCategoryImg02} alt="" />
               Pizza
             </button>
             <button
-              className={`${category === "BREAD" ? "active" : ""}`}
+              className={`${category === "BREAD" ? "activeBtn" : ""}`}
               onClick={() => setCategory("BREAD")}
             >
               <img src={foodCategoryImg03} alt="" />
@@ -199,6 +200,7 @@ function Home() {
             architecto, delectus illo rem esse?
           </p>
         </div>
+        <CostumersSlider />
       </section>
     </div>
   );
