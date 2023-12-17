@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import heroImg from "../assets/data/images/hero (1).png";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
@@ -6,6 +6,16 @@ import Category from "../components/UI/category/Category";
 import featureImg01 from "../assets/data/images/service-01.png";
 import featureImg02 from "../assets/data/images/service-02.png";
 import featureImg03 from "../assets/data/images/service-03.png";
+import networkImg from "../assets/images/network.png";
+
+import products from "../assets/data/products.js";
+import foodCategoryImg01 from "../assets/images/hamburger.png";
+import foodCategoryImg02 from "../assets/images/pizza.png";
+import foodCategoryImg03 from "../assets/images/bread(1).png";
+import whyImg from "../assets/images/location.png";
+
+import ProductCard from "../components/UI/product-card/ProductCard";
+import "./Home.scss";
 
 const featureData = [
   {
@@ -26,6 +36,43 @@ const featureData = [
 ];
 
 function Home() {
+  const [category, setCategory] = useState("ALL");
+  const [allProducts, setAllProducts] = useState(products);
+  const [hotPizza, setHotPizza] = useState([]);
+
+  useEffect(() => {
+    const filteredPizza = products.filter((item) => item.category === "Pizza");
+    const slicePizza = filteredPizza.slice(0, 4);
+    setHotPizza(slicePizza);
+  }, []);
+
+  useEffect(() => {
+    if (category === "ALL") setAllProducts(products);
+    if (category === "BURGER") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Burger"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === "PIZZA") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Pizza"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === "BREAD") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Bread"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+  }, [category]);
+
   return (
     <div>
       <section>
@@ -72,6 +119,86 @@ function Home() {
             <p>{item.desc}</p>
           </div>
         ))}
+
+        <div>
+          <h2>Popular Foods</h2>
+
+          <div>
+            <button
+              className={`${category === "ALL" ? "active" : ""}`}
+              onClick={() => setCategory("ALL")}
+            >
+              All
+            </button>
+
+            <button
+              className={`${category === "BURGER" ? "active" : ""}`}
+              onClick={() => setCategory("BURGER")}
+            >
+              <img src={foodCategoryImg01} alt="" />
+              Burger
+            </button>
+            <button
+              className={`${category === "PIZZA" ? "active" : ""}`}
+              onClick={() => setCategory("PIZZA")}
+            >
+              <img src={foodCategoryImg02} alt="" />
+              Pizza
+            </button>
+            <button
+              className={`${category === "BREAD" ? "active" : ""}`}
+              onClick={() => setCategory("BREAD")}
+            >
+              <img src={foodCategoryImg03} alt="" />
+              Bread
+            </button>
+          </div>
+        </div>
+
+        <div>
+          {allProducts.map((item) => (
+            <div key={item.id}>
+              <ProductCard item={item} />
+            </div>
+          ))}
+        </div>
+
+        <div>
+          <img style={{ width: "500px" }} src={whyImg} alt="" />
+          <h2>WHY FOODIEFRONT?</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
+            harum? Optio temporibus voluptate nostrum aliquid, aliquam a ipsum
+            eligendi at veritatis id. Laborum labore cumque distinctio deserunt
+            voluptas fugit repellat.
+          </p>
+
+          <p>FREsh and tasty food</p>
+          <p>quality support</p>
+          <p>any location</p>
+        </div>
+
+        <div>
+          <h2>Hot Pizza</h2>
+          {hotPizza.map((item) => (
+            <div key={item.id}>
+              <ProductCard item={item} />
+            </div>
+          ))}
+        </div>
+
+        <div>
+          <img style={{ width: "200px" }} src={networkImg} alt="" />
+
+          <h5>Testimonial</h5>
+          <h2>What are our costumers saying</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ea
+            quis voluptates tempora, soluta tenetur temporibus accusantium ab
+            voluptatum facilis error eaque beatae quaerat voluptatibus
+            architecto, delectus illo rem esse?
+          </p>
+        </div>
       </section>
     </div>
   );
