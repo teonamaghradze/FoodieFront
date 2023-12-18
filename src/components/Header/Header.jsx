@@ -3,7 +3,9 @@ import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
 import cart from "../../assets/images/cart-shopping-solid.svg";
 import "./Header.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { cartUiActions } from "../../store/shoppingCart/cartUiSlice";
 
 const navLinks = [
   {
@@ -26,6 +28,11 @@ const navLinks = [
 
 function Header() {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const dispatch = useDispatch();
+
+  const toggleCart = () => {
+    dispatch(cartUiActions.toggle());
+  };
 
   return (
     <div className="header" style={{ display: "flex" }}>
@@ -48,8 +55,8 @@ function Header() {
 
       {/* RIGHT ICONS */}
       <div>
-        <Link to="./cart">
-          <img src={cart} alt="" />
+        <Link>
+          <img onClick={toggleCart} src={cart} alt="" />
         </Link>
         <span>{totalQuantity}</span>
       </div>
