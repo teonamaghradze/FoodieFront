@@ -3,6 +3,8 @@ import categoryImg02 from "../../../assets/images/category-02.png";
 import categoryImg03 from "../../../assets/images/category-03.png";
 import categoryImg04 from "../../../assets/images/category-04.png";
 
+import "./Category.scss";
+
 const categoryData = [
   { display: "Fastfood", imgUrl: categoryImg01 },
   { display: "Pizza", imgUrl: categoryImg02 },
@@ -12,7 +14,7 @@ const categoryData = [
 
 function Category() {
   return (
-    <div>
+    <div className="category">
       {categoryData.map((item, i) => (
         <div key={item.display}>
           <img src={item.imgUrl} alt="" />

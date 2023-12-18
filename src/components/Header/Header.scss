@@ -1,10 +1,17 @@
-.active {
-  color: red;
-}
-
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   position: sticky;
   top: 0;
   background-color: white;
   box-shadow: 5px 5px 15px -5px #fde4e4;
+  .menu {
+    display: flex;
+    gap: 50px;
+    font-size: 18px;
+  }
+  .active {
+    color: orange;
+  }
 }

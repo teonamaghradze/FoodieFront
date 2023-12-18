@@ -35,7 +35,7 @@ function Header() {
   };
 
   return (
-    <div className="header" style={{ display: "flex" }}>
+    <nav className="header">
       <div className="logo">
         <img style={{ width: "60px" }} src={logo} alt="" />
         <h5>FoodieFront</h5>
@@ -43,14 +43,12 @@ function Header() {
 
       {/* MEnU */}
 
-      <div>
-        <div className="menu active">
-          {navLinks.map((item, i) => (
-            <NavLink to={item.path} key={item.path}>
-              {item.display}
-            </NavLink>
-          ))}
-        </div>
+      <div className="menu active">
+        {navLinks.map((item, i) => (
+          <NavLink to={item.path} key={item.path}>
+            {item.display}
+          </NavLink>
+        ))}
       </div>
 
       {/* RIGHT ICONS */}
@@ -60,7 +58,7 @@ function Header() {
         </Link>
         <span>{totalQuantity}</span>
       </div>
-    </div>
+    </nav>
   );
 }
 

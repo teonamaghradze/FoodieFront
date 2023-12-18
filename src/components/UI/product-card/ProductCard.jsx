@@ -1,5 +1,3 @@
-import React from "react";
-// import productImg from "../../../assets/images/product_01.3.jpg";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shoppingCart/cartSlice";

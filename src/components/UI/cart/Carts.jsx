@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
+import "./Carts.scss";
 
 function Carts() {
   const cartProducts = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   return (
-    <div style={{ backgroundColor: "pink" }}>
-      <div>
-        <span>X</span>
-      </div>
-
+    <section className="cart-container">
       <div>
         {cartProducts.length === 0 ? (
           <h6>No items are added yet</h6>
@@ -29,7 +26,7 @@ function Carts() {
           Checkout
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 

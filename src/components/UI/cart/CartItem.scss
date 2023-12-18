@@ -1,14 +1,14 @@
-// .cart-item {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   //   width: 100%;
-//   //   height: 100%;
-//   background: gray;
-//   z-index: 8888;
-// }
-
-// .cart {
-//   position: absolute;
-//   background-color: pink;
-// }
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  .delete-btn {
+    width: 50px;
+  }
+  img {
+    width: 80px;
+  }
+  .quantity-price {
+    display: flex;
+    gap: 20px;
+  }
+}

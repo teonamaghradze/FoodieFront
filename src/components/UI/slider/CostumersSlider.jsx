@@ -3,6 +3,7 @@ import ava01 from "../../../assets/images/ava-1.jpg";
 import ava02 from "../../../assets/images/ava-2.jpg";
 import ava03 from "../../../assets/images/ava-3.jpg";
 import ava04 from "../../../assets/images/ava-4.jpg";
+import "./CostumerSlider.scss";
 
 function CostumersSlider() {
   const settings = {
@@ -16,8 +17,8 @@ function CostumersSlider() {
     slideToScroll: 1,
   };
   return (
-    <Slider {...settings}>
-      <div>
+    <Slider {...settings} className="costumers">
+      <section className="costumer">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
           corporis porro perspiciatis, quas aliquam dolorem tempora voluptate
@@ -26,8 +27,8 @@ function CostumersSlider() {
         </p>
         <img src={ava01} alt="" />
         <h4>Teona Maghradze</h4>
-      </div>
-      <div>
+      </section>
+      <section>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
           corporis porro perspiciatis, quas aliquam dolorem tempora voluptate
@@ -37,8 +38,8 @@ function CostumersSlider() {
 
         <img src={ava02} alt="" />
         <h4>Teona Maghradze</h4>
-      </div>
-      <div>
+      </section>
+      <section>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
           corporis porro perspiciatis, quas aliquam dolorem tempora voluptate
@@ -47,9 +48,9 @@ function CostumersSlider() {
         </p>
         <img src={ava03} alt="" />
         <h4>Teona Maghradze</h4>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
           corporis porro perspiciatis, quas aliquam dolorem tempora voluptate
@@ -58,7 +59,7 @@ function CostumersSlider() {
         </p>
         <img src={ava04} alt="" />
         <h4>Teona Maghradze</h4>
-      </div>
+      </section>
     </Slider>
   );
 }

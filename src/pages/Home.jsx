@@ -76,33 +76,34 @@ function Home() {
 
   return (
     <div>
-      <section>
-        <div className="hero-img">
-          <h5>Easy way to make an order</h5>
-          <h1>
-            <span>Hungry?</span>
-            Just wait for food at your door
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit corrupti quas odio, dolorum exercitationem eaque
-            quaerat magni pariatur dolorem obcaecati aspernatur provident rem
-            tempore possimus optio necessitatibus atque, non alias.
-          </p>
+      <section className="hero-section">
+        <h5>Easy way to make an order</h5>
+        <h1>
+          <span>Hungry?</span>
+          Just wait for food at your door
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Reprehenderit corrupti quas odio, dolorum exercitationem eaque quaerat
+          magni pariatur dolorem obcaecati aspernatur provident rem tempore
+          possimus optio necessitatibus atque, non alias.
+        </p>
 
-          <button>ORDER NOW</button>
-          <Link to="/foods">See all foods</Link>
-          <div>
-            <p>No Shipping Charge</p>
-          </div>
-          <div>
-            <p>100% secure checkout</p>
-          </div>
-
-          <img style={{ width: "300px" }} src={heroImg} alt="" />
+        <button>ORDER NOW</button>
+        <Link to="/foods">See all foods</Link>
+        <div>
+          <p>No Shipping Charge</p>
         </div>
-        <Category />
+        <div>
+          <p>100% secure checkout</p>
+        </div>
 
+        <img className="hero-img" src={heroImg} alt="" />
+      </section>
+
+      <Category />
+
+      <section className="serving">
         <div>
           <h1>What we serve</h1>
           <p>
@@ -113,95 +114,99 @@ function Home() {
           </p>
         </div>
 
-        {featureData.map((item) => (
-          <div key={item.desc}>
-            <img src={item.imgUrl} alt="" />
-            <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-          </div>
-        ))}
-
-        <div>
-          <h2>Popular Foods</h2>
-
-          <div>
-            <button
-              className={`${category === "ALL" ? "activeBtn" : ""}`}
-              onClick={() => setCategory("ALL")}
-            >
-              All
-            </button>
-
-            <button
-              className={`${category === "BURGER" ? "activeBtn" : ""}`}
-              onClick={() => setCategory("BURGER")}
-            >
-              <img src={foodCategoryImg01} alt="" />
-              Burger
-            </button>
-            <button
-              className={`${category === "PIZZA" ? "activeBtn" : ""}`}
-              onClick={() => setCategory("PIZZA")}
-            >
-              <img src={foodCategoryImg02} alt="" />
-              Pizza
-            </button>
-            <button
-              className={`${category === "BREAD" ? "activeBtn" : ""}`}
-              onClick={() => setCategory("BREAD")}
-            >
-              <img src={foodCategoryImg03} alt="" />
-              Bread
-            </button>
-          </div>
-        </div>
-
-        <div>
-          {allProducts.map((item) => (
-            <div key={item.id}>
-              <ProductCard item={item} />
+        <div className="serving-bottom">
+          {featureData.map((item) => (
+            <div key={item.desc}>
+              <img className="serving-img" src={item.imgUrl} alt="" />
+              <h2>{item.title}</h2>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
+      </section>
 
-        <div>
-          <img style={{ width: "500px" }} src={whyImg} alt="" />
-          <h2>WHY FOODIEFRONT?</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
-            harum? Optio temporibus voluptate nostrum aliquid, aliquam a ipsum
-            eligendi at veritatis id. Laborum labore cumque distinctio deserunt
-            voluptas fugit repellat.
-          </p>
+      <section>
+        <h2>Popular Foods</h2>
 
-          <p>FREsh and tasty food</p>
-          <p>quality support</p>
-          <p>any location</p>
+        <div className="popular-food-buttons">
+          <button
+            className={`${category === "ALL" ? "activeBtn" : ""}`}
+            onClick={() => setCategory("ALL")}
+          >
+            All
+          </button>
+
+          <button
+            className={`${category === "BURGER" ? "activeBtn" : ""}`}
+            onClick={() => setCategory("BURGER")}
+          >
+            <img src={foodCategoryImg01} alt="" />
+            Burger
+          </button>
+          <button
+            className={`${category === "PIZZA" ? "activeBtn" : ""}`}
+            onClick={() => setCategory("PIZZA")}
+          >
+            <img src={foodCategoryImg02} alt="" />
+            Pizza
+          </button>
+          <button
+            className={`${category === "BREAD" ? "activeBtn" : ""}`}
+            onClick={() => setCategory("BREAD")}
+          >
+            <img src={foodCategoryImg03} alt="" />
+            Bread
+          </button>
         </div>
+      </section>
 
-        <div>
-          <h2>Hot Pizza</h2>
+      <section className="foods-container">
+        {allProducts.map((item) => (
+          <div key={item.id}>
+            <ProductCard item={item} />
+          </div>
+        ))}
+      </section>
+
+      <section>
+        <img style={{ width: "500px" }} src={whyImg} alt="" />
+        <h2>WHY FOODIEFRONT?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
+          harum? Optio temporibus voluptate nostrum aliquid, aliquam a ipsum
+          eligendi at veritatis id. Laborum labore cumque distinctio deserunt
+          voluptas fugit repellat.
+        </p>
+
+        <p>FREsh and tasty food</p>
+        <p>quality support</p>
+        <p>any location</p>
+      </section>
+
+      <section>
+        <h2>Hot Pizza</h2>
+        <div className="featured-food">
           {hotPizza.map((item) => (
             <div key={item.id}>
               <ProductCard item={item} />
             </div>
           ))}
         </div>
-
-        <div>
-          <img style={{ width: "200px" }} src={networkImg} alt="" />
-
-          <h5>Testimonial</h5>
-          <h2>What are our costumers saying</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ea
-            quis voluptates tempora, soluta tenetur temporibus accusantium ab
-            voluptatum facilis error eaque beatae quaerat voluptatibus
-            architecto, delectus illo rem esse?
-          </p>
-        </div>
-        <CostumersSlider />
       </section>
+
+      <section className="testimonials">
+        <img src={networkImg} alt="" />
+
+        <h5>Testimonial</h5>
+        <h2>What are our costumers saying</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ea
+          quis voluptates tempora, soluta tenetur temporibus accusantium ab
+          voluptatum facilis error eaque beatae quaerat voluptatibus architecto,
+          delectus illo rem esse?
+        </p>
+      </section>
+      <CostumersSlider />
     </div>
   );
 }

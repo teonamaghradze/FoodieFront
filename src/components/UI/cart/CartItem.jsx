@@ -25,21 +25,21 @@ function CartItem({ item }) {
 
   return (
     <div className="cart-item">
-      <div className="cart">
-        <img style={{ width: "200px" }} src={item.image01} alt="" />
-        <div>
-          <h6>{item.title}</h6>
-          <p>
-            {item.quantity}x <span>${item.totalPrice}</span>
-          </p>
-        </div>
-        <div>
-          <span onClick={decreaseItem}>-</span>
-          <span>{item.quantity}</span>
-          <span onClick={incrementItem}>+</span>
-        </div>
-        <span onClick={deleteItem}>X delete</span>
+      <img src={item.image01} alt="" />
+      <div>
+        <h6>{item.title}</h6>
+        <p className="quantity-price">
+          {item.quantity}x <span>${item.totalPrice}</span>
+        </p>
       </div>
+      <div>
+        <button onClick={decreaseItem}>➖</button>
+        <span> {item.quantity} </span>
+        <button onClick={incrementItem}>➕</button>
+      </div>
+      <button className="delete-btn" onClick={deleteItem}>
+        ❌
+      </button>
     </div>
   );
 }
