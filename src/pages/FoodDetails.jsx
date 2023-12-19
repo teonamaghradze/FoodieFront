@@ -1,61 +1,146 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import products from "../assets/data/products";
 import { useParams } from "react-router-dom";
 import CommonSection from "../components/UI/common-section/CommonSection";
-
-import productImg from "../assets/images/product_01.1.jpg";
 import "./FoodDetails.scss";
+import ProductCard from "../components/UI/product-card/ProductCard";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/shoppingCart/cartSlice";
 
 function FoodDetails() {
+  const [tab, setTab] = useState("desc");
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [reviewMessage, setReviewMessage] = useState("");
+
+  const { id } = useParams();
+  const product = products.find((product) => product.id === id);
+  const dispatch = useDispatch();
+
+  const [previewImg, setPreviewImg] = useState(product.image01);
+
+  const relatedFood = products.filter(
+    (item) => product.category === item.category
+  );
+
+  const addItem = () => {
+    dispatch(
+      cartActions.addItem({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image01: product.image01,
+      })
+    );
+  };
+
+  useEffect(() => {
+    setPreviewImg(product.image01);
+  }, [product]);
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [product]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div style={{ display: "flex" }}>
-        <CommonSection title="product 01" />
+        <CommonSection title={product.title} />
 
         <section
           style={{ display: "flex", alignItems: "center" }}
           className="images"
         >
           <div className="side-images">
-            <div>
-              <img style={{ width: "100px" }} src={productImg} alt="" />
+            <div onClick={() => setPreviewImg(product.image01)}>
+              <img style={{ width: "100px" }} src={product.image01} alt="" />
             </div>
-            <div>
-              <img style={{ width: "100px" }} src={productImg} alt="" />
+            <div onClick={() => setPreviewImg(product.image02)}>
+              <img style={{ width: "100px" }} src={product.image02} alt="" />
             </div>
-            <div>
-              <img style={{ width: "100px" }} src={productImg} alt="" />
+            <div onClick={() => setPreviewImg(product.image03)}>
+              <img style={{ width: "100px" }} src={product.image03} alt="" />
             </div>
           </div>
 
           <div className="main-img">
             <div>
-              <img style={{ width: "300px" }} src={productImg} alt="" />
+              <img style={{ width: "300px" }} src={previewImg} alt="" />
             </div>
           </div>
         </section>
         <section>
           <div>
-            <h2>pizza with mushrooms</h2>
-            <span>$34</span>
+            <h2>{product.title}</h2>
+            <span>${product.price}</span>
             <p>
-              Category: <span>Burger</span>
+              Category: <span>{product.category}</span>
             </p>
-            <button>Add to cart</button>
+            <button onClick={addItem}>Add to cart</button>
           </div>
         </section>
       </div>
       <section>
-        <h6>Description</h6>
-        <h6>review</h6>
+        <h6
+          className={`${tab === "desc" ? "active-tab" : ""}`}
+          onClick={() => setTab("desc")}
+        >
+          Description
+        </h6>
+        <h6
+          className={`${tab === "review" ? "active-tab" : ""}`}
+          onClick={() => setTab("review")}
+        >
+          review
+        </h6>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
-          ratione quasi recusandae culpa soluta, ipsam fugiat iusto velit
-          sapiente similique amet dolorum aperiam accusantium. Perferendis
-          officia numquam nemo aperiam reiciendis.
-        </p>
+        {tab === "desc" ? (
+          <p>{product.desc}</p>
+        ) : (
+          <div>
+            <div className="review">
+              <p>Teona Maghradze</p>
+              <p>mail@mail.com</p>
+              <p>Great product</p>
+            </div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <input
+                  onChange={(e) => setEnteredName(e.target.value)}
+                  type="text"
+                  placeholder="Enter Your Name"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Enter Your Email"
+                  onChange={(e) => setEnteredEmail(e.target.value)}
+                  required
+                />
+                <textarea
+                  rows={5}
+                  type="text"
+                  placeholder="Enter Your Meesage"
+                  onChange={(e) => setReviewMessage(e.target.value)}
+                  required
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        )}
       </section>
+
+      <div>
+        <h2>You might also like</h2>
+        {relatedFood.map((item) => (
+          <ProductCard item={item} key={item.id} />
+        ))}
+      </div>
     </>
   );
 }
