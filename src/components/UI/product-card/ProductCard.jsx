@@ -18,12 +18,13 @@ function ProductCard({ item }) {
 
   return (
     <div className="product-card">
-      <img style={{ width: "100px" }} src={item.image01} alt="" />
-
       <div>
-        <h5>
-          <Link to={`/foods/${item.id}`}>{item.title}</Link>
-        </h5>
+        <div>
+          <Link to={`/foods/${item.id}`}>
+            <img style={{ width: "100px" }} src={item.image01} alt="" />
+            <p> {item.title}</p>
+          </Link>
+        </div>
 
         <div>
           <span>${item.price}</span>

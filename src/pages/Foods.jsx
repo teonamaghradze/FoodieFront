@@ -5,12 +5,43 @@ import { useState } from "react";
 
 function Foods() {
   const [filteredInputFood, setFilteredInputFood] = useState(products);
+  const [filterSelectFood, setFilterSelectFood] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredInputFood.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const totalPages = Math.ceil(filteredInputFood.length / itemsPerPage);
+
+  function handlePageChange(newPage) {
+    setCurrentPage(newPage);
+  }
 
   function handleChange(e) {
     const filteredProducts = products.filter((el) =>
       el.title.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setFilteredInputFood(filteredProducts);
+  }
+
+  function handleSelect(e) {
+    setFilterSelectFood(e.target.value);
+    if (e.target.value === "high-price") {
+      const sorted = [...products].sort((a, b) => b.price - a.price);
+      setFilteredInputFood(sorted);
+    }
+
+    if (e.target.value === "low-price") {
+      const sorted = [...products].sort((a, b) => a.price - b.price);
+      setFilteredInputFood(sorted);
+    }
+
+    if (e.target.value === "default") setFilterSelectFood("");
+    // if (e.target.value === "default") setFilterSelectFood(products);
   }
 
   return (
@@ -26,19 +57,32 @@ function Foods() {
       </section>
 
       <section>
-        <select>
+        <select onChange={(e) => handleSelect(e)}>
           <option value="">default</option>
-
-          <option value="ascending">Alphabetically, A-Z</option>
-          <option value="descending">Alphabetically, Z-A</option>
           <option value="high-price">High Price</option>
           <option value="low-price">Low Price</option>
         </select>
       </section>
 
-      {filteredInputFood.map((item) => (
+      {currentItems.map((item) => (
         <ProductCard item={item} key={item.id} />
       ))}
+
+      <div>
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <span>{currentPage}</span>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
