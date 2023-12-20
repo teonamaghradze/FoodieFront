@@ -44,6 +44,7 @@ function FoodDetails() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(enteredName, enteredEmail, reviewMessage);
   }
 
   return (
