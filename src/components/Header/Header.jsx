@@ -37,8 +37,10 @@ function Header() {
   return (
     <nav className="header">
       <div className="logo">
-        <img style={{ width: "60px" }} src={logo} alt="" />
-        <h5>FoodieFront</h5>
+        <Link to="/home">
+          <img src={logo} alt="" />
+        </Link>
+        <h5>Foodie</h5>
       </div>
 
       {/* MEnU */}
@@ -54,9 +56,9 @@ function Header() {
       {/* RIGHT ICONS */}
       <div>
         <Link>
-          <img onClick={toggleCart} src={cart} alt="" />
+          <img className="cart-logo" onClick={toggleCart} src={cart} alt="" />
         </Link>
-        <span>{totalQuantity}</span>
+        <span className="cart-quantity">{totalQuantity}</span>
       </div>
     </nav>
   );

@@ -1,5 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// const items =
+//   localStorage.getItem("cartItems") !== null
+//     ? JSON.parse(localStorage.getItem("cartItems"))
+//     : [];
+
+// const totalAmount =
+//   localStorage.getItem("totalAmount") !== null
+//     ? Number(JSON.parse(localStorage.getItem("totalAmount")))
+//     : 0;
+
+// const totalQuantity =
+//   localStorage.getItem("totalQuantity") !== null
+//     ? Number(JSON.parse(localStorage.getItem("totalQuantity")))
+//     : 0;
+
 const initialState = {
   cartItems: [],
   totalQuantity: 0,
@@ -36,6 +51,20 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
+
+      // localStorage.setItem(
+      //   "cartItems",
+      //   JSON.stringify(state.cartItems.map((item) => item))
+      // );
+      // localStorage.setItem(
+      //   "totalAmount",
+      //   Number(JSON.stringify(state.totalAmount))
+      // );
+
+      // localStorage.setItem(
+      //   "totalQuantity",
+      //   Number(JSON.stringify(state.totalQuantity))
+      // );
     },
 
     //decrease item
@@ -55,6 +84,19 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
+      // localStorage.setItem(
+      //   "cartItems",
+      //   JSON.stringify(state.cartItems.map((item) => item))
+      // );
+      // localStorage.setItem(
+      //   "totalAmount",
+      //   Number(JSON.stringify(state.totalAmount))
+      // );
+
+      // localStorage.setItem(
+      //   "totalQuantity",
+      //   Number(JSON.stringify(state.totalQuantity))
+      // );
     },
 
     //deleteItem
@@ -70,6 +112,19 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
+      // localStorage.setItem(
+      //   "cartItems",
+      //   JSON.stringify(state.cartItems.map((item) => item))
+      // );
+      // localStorage.setItem(
+      //   "totalAmount",
+      //   Number(JSON.stringify(state.totalAmount))
+      // );
+
+      // localStorage.setItem(
+      //   "totalQuantity",
+      //   Number(JSON.stringify(state.totalQuantity))
+      // );
     },
   },
 });

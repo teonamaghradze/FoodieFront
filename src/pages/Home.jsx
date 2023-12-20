@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import heroImg from "../assets/images/hero (1).png";
+
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
 
@@ -77,28 +77,26 @@ function Home() {
   return (
     <div>
       <section className="hero-section">
-        <h5>Easy way to make an order</h5>
-        <h1>
-          <span>Hungry?</span>
-          Just wait for food at your door
-        </h1>
+        <p className="hungry">Hungry?</p>
+        <h5>
+          Fastest <span>Delivery</span> & Easy <span>Pickup</span>
+        </h5>
+        <h2>Enjoy Your Food Without Leaving The House</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Reprehenderit corrupti quas odio, dolorum exercitationem eaque quaerat
-          magni pariatur dolorem obcaecati aspernatur provident rem tempore
-          possimus optio necessitatibus atque, non alias.
+          Satisfy your cravings without stepping out ~ indulge in a diverse
+          culinary experience delivered straight to your doorstep. Elevate your
+          home dining with a menu that caters to your taste.
         </p>
 
-        <button>ORDER NOW</button>
-        <Link to="/foods">See all foods</Link>
-        <div>
-          <p>No Shipping Charge</p>
-        </div>
-        <div>
-          <p>100% secure checkout</p>
-        </div>
+        <Link to="/foods">
+          <button>Order Now</button>
+        </Link>
 
-        <img className="hero-img" src={heroImg} alt="" />
+        {/* <div>
+          <p>100% secure checkout</p>
+        </div> */}
+
+        {/* <img className="hero-img" src={heroImg} alt="" /> */}
       </section>
 
       <Category />

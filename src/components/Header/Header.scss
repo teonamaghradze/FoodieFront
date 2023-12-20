@@ -1,3 +1,5 @@
+@import "../../common.scss";
+
 .header {
   display: flex;
   align-items: center;
@@ -6,12 +8,36 @@
   top: 0;
   background-color: white;
   box-shadow: 5px 5px 15px -5px #fde4e4;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    img {
+      width: 70px;
+    }
+  }
   .menu {
     display: flex;
     gap: 50px;
     font-size: 18px;
   }
   .active {
-    color: orange;
+    color: $main-red;
+  }
+
+  .cart-logo {
+    position: relative;
+  }
+  .cart-quantity {
+    background-color: $main-green;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 11px;
+    width: 18px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 28%;
+    // right: 10%;
   }
 }
