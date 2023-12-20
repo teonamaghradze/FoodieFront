@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from "react";
 import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
 import cart from "../../assets/images/cart-shopping-solid.svg";
@@ -40,7 +39,9 @@ function Header() {
         <Link to="/home">
           <img src={logo} alt="" />
         </Link>
-        <h5>Foodie</h5>
+        <h5>
+          Foo<span style={{ color: "red" }}>die</span>
+        </h5>
       </div>
 
       {/* MEnU */}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-import Category from "../components/UI/category/Category";
+// import Category from "../components/UI/category/Category";
 
 import featureImg01 from "../assets/images/service-01.png";
-import featureImg02 from "../assets/images/service-02.png";
-import featureImg03 from "../assets/images/service-03.png";
+import featureImg02 from "../assets/images/clipboard.png";
+import featureImg03 from "../assets/images/pizzaa.png";
 import networkImg from "../assets/images/network.png";
 
 import products from "../assets/data/products.js";
@@ -20,19 +20,19 @@ import CostumersSlider from "../components/UI/slider/CostumersSlider.jsx";
 
 const featureData = [
   {
-    title: "Quick Delivery",
+    title: "Quick delivery",
     imgUrl: featureImg01,
-    desc: "Lorem ipusmsdaaaaaaaaaaa",
+    desc: "Super Fast Delivery",
   },
   {
-    title: "Super dine in",
+    title: "Easy to order",
     imgUrl: featureImg02,
-    desc: "Lorem ipusmsdaaaaaaaaa",
+    desc: "Online food ordering",
   },
   {
-    title: "Easy Pick up",
+    title: "Best quality",
     imgUrl: featureImg03,
-    desc: "Lorem ipusmdaaaaaaaaaaa",
+    desc: "Best quality food ordering",
   },
 ];
 
@@ -91,18 +91,12 @@ function Home() {
         <Link to="/foods">
           <button>Order Now</button>
         </Link>
-
-        {/* <div>
-          <p>100% secure checkout</p>
-        </div> */}
-
-        {/* <img className="hero-img" src={heroImg} alt="" /> */}
       </section>
 
-      <Category />
+      {/* <Category /> */}
 
       <section className="serving">
-        <div>
+        {/* <div>
           <h1>What we serve</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -110,25 +104,30 @@ function Home() {
             voluptatem? Porro qui perferendis doloremque asperiores eveniet
             nobis et culpa doloribus eaque. Ad, incidunt.
           </p>
-        </div>
+        </div> */}
 
         <div className="serving-bottom">
           {featureData.map((item) => (
-            <div key={item.desc}>
+            <div className="serving-icon-container" key={item.desc}>
               <img className="serving-img" src={item.imgUrl} alt="" />
-              <h2>{item.title}</h2>
-              <p>{item.desc}</p>
+              <div className="serving-txt">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
-        <h2>Popular Foods</h2>
+      <section className="food-categories">
+        <h2>
+          Our <span>Best Delivered</span> Categories
+        </h2>
+        <p>Most Popular food in the Restaurants</p>
 
         <div className="popular-food-buttons">
           <button
-            className={`${category === "ALL" ? "activeBtn" : ""}`}
+            className={`all-btn ${category === "ALL" ? "activeBtn" : ""}`}
             onClick={() => setCategory("ALL")}
           >
             All
@@ -138,22 +137,28 @@ function Home() {
             className={`${category === "BURGER" ? "activeBtn" : ""}`}
             onClick={() => setCategory("BURGER")}
           >
-            <img src={foodCategoryImg01} alt="" />
-            Burger
+            <div className="flex">
+              <img src={foodCategoryImg01} alt="" />
+              <span>Burger</span>
+            </div>
           </button>
           <button
             className={`${category === "PIZZA" ? "activeBtn" : ""}`}
             onClick={() => setCategory("PIZZA")}
           >
-            <img src={foodCategoryImg02} alt="" />
-            Pizza
+            <div className="flex">
+              <img src={foodCategoryImg02} alt="" />
+              <span>Pizza</span>
+            </div>
           </button>
           <button
             className={`${category === "BREAD" ? "activeBtn" : ""}`}
             onClick={() => setCategory("BREAD")}
           >
-            <img src={foodCategoryImg03} alt="" />
-            Bread
+            <div className="flex">
+              <img src={foodCategoryImg03} alt="" />
+              Bread
+            </div>
           </button>
         </div>
       </section>
