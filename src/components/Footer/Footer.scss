@@ -1,0 +1,51 @@
+@import "../../common.scss";
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  //   gap: 100px;
+  margin-top: 100px;
+  border-top: 1px solid $lighter-green;
+  padding-top: 80px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.description {
+  font-size: 14px;
+  color: #747171;
+  margin-bottom: 10px;
+  width: 300px;
+  line-height: 1.7;
+}
+
+.socials img {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+h5 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: $main-green;
+}
+
+p {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #7e7d7d;
+}
