@@ -12,7 +12,10 @@ import products from "../assets/data/products.js";
 import foodCategoryImg01 from "../assets/images/hamburger.png";
 import foodCategoryImg02 from "../assets/images/pizza.png";
 import foodCategoryImg03 from "../assets/images/bread(1).png";
-import whyImg from "../assets/images/location.png";
+import whyImg from "../assets/images/salads.png";
+import pizza from "../assets/images/pizza-slice-solid.svg";
+import location from "../assets/images/compass-regular.svg";
+import support from "../assets/images/headset-solid.svg";
 
 import ProductCard from "../components/UI/product-card/ProductCard";
 import "./Home.scss";
@@ -39,12 +42,12 @@ const featureData = [
 function Home() {
   const [category, setCategory] = useState("ALL");
   const [allProducts, setAllProducts] = useState(products);
-  const [hotPizza, setHotPizza] = useState([]);
+  const [freshSalad, setFreshSalad] = useState([]);
 
   useEffect(() => {
-    const filteredPizza = products.filter((item) => item.category === "Pizza");
-    const slicePizza = filteredPizza.slice(0, 4);
-    setHotPizza(slicePizza);
+    const filteredSalads = products.filter((item) => item.category === "Salad");
+    const salads = filteredSalads.slice(0, 4);
+    setFreshSalad(salads);
   }, []);
 
   useEffect(() => {
@@ -65,9 +68,9 @@ function Home() {
       setAllProducts(filteredProducts);
     }
 
-    if (category === "BREAD") {
+    if (category === "SALAD") {
       const filteredProducts = products.filter(
-        (item) => item.category === "Bread"
+        (item) => item.category === "Salad"
       );
 
       setAllProducts(filteredProducts);
@@ -152,12 +155,12 @@ function Home() {
             </div>
           </button>
           <button
-            className={`${category === "BREAD" ? "activeBtn" : ""}`}
-            onClick={() => setCategory("BREAD")}
+            className={`${category === "SALAD" ? "activeBtn" : ""}`}
+            onClick={() => setCategory("SALAD")}
           >
             <div className="flex">
               <img src={foodCategoryImg03} alt="" />
-              Bread
+              Salad
             </div>
           </button>
         </div>
@@ -171,25 +174,50 @@ function Home() {
         ))}
       </section>
 
-      <section>
-        <img style={{ width: "500px" }} src={whyImg} alt="" />
-        <h2>WHY FOODIEFRONT?</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
-          harum? Optio temporibus voluptate nostrum aliquid, aliquam a ipsum
-          eligendi at veritatis id. Laborum labore cumque distinctio deserunt
-          voluptas fugit repellat.
-        </p>
+      <section className="why-section">
+        <img src={whyImg} alt="" />
 
-        <p>FREsh and tasty food</p>
-        <p>quality support</p>
-        <p>any location</p>
+        <div>
+          <h2>
+            Why Foo<span>die</span>?
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
+            harum? Optio temporibus voluptate nostrum aliquid, aliquam a ipsum
+            eligendi at veritatis id. Laborum labore cumque distinctio deserunt
+            voluptas fugit repellat.
+          </p>
+
+          <div className="why-icons">
+            <div>
+              <section>
+                <img src={pizza} alt="" />
+              </section>
+              <p>Choose Your Favourite Food</p>
+            </div>
+
+            <div>
+              <section>
+                <img src={location} alt="" />
+              </section>
+              <p>Any Location</p>
+            </div>
+            <div>
+              <section>
+                <img src={support} alt="" />
+              </section>
+              <p>quality support</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2>Hot Pizza</h2>
+      <section className="fresh-salad">
+        <h2>
+          Fresh <span>Salad</span>
+        </h2>
         <div className="featured-food">
-          {hotPizza.map((item) => (
+          {freshSalad.map((item) => (
             <div key={item.id}>
               <ProductCard item={item} />
             </div>
@@ -197,19 +225,17 @@ function Home() {
         </div>
       </section>
 
-      <section className="testimonials">
-        <img src={networkImg} alt="" />
-
-        <h5>Testimonial</h5>
-        <h2>What are our costumers saying</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ea
-          quis voluptates tempora, soluta tenetur temporibus accusantium ab
-          voluptatum facilis error eaque beatae quaerat voluptatibus architecto,
-          delectus illo rem esse?
-        </p>
+      <section className="test-container">
+        <h2>
+          What are our <span>costumers</span> saying?
+        </h2>
+        <div className="testimonials">
+          <img src={networkImg} alt="" />
+          <div>
+            <CostumersSlider />
+          </div>
+        </div>
       </section>
-      <CostumersSlider />
     </div>
   );
 }
