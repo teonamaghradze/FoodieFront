@@ -2,6 +2,7 @@ import CommonSection from "../components/UI/common-section/CommonSection";
 import products from "../assets/data/products";
 import ProductCard from "../components/UI/product-card/ProductCard";
 import { useState } from "react";
+import "./Foods.scss";
 
 function Foods() {
   const [filteredInputFood, setFilteredInputFood] = useState(products);
@@ -48,27 +49,30 @@ function Foods() {
     <div>
       <CommonSection title="All Foods" />
 
-      <section>
-        <input
-          type="text"
-          placeholder="Im looking for"
-          onChange={(e) => handleChange(e)}
-        />
-      </section>
+      <div className="filters">
+        <section>
+          <input
+            type="text"
+            placeholder="Im looking for"
+            onChange={(e) => handleChange(e)}
+          />
+        </section>
 
-      <section>
-        <select onChange={(e) => handleSelect(e)}>
-          <option value="">default</option>
-          <option value="high-price">High Price</option>
-          <option value="low-price">Low Price</option>
-        </select>
-      </section>
+        <section>
+          <select onChange={(e) => handleSelect(e)}>
+            <option value="">default</option>
+            <option value="high-price">High Price</option>
+            <option value="low-price">Low Price</option>
+          </select>
+        </section>
+      </div>
+      <div className="products-box">
+        {currentItems.map((item) => (
+          <ProductCard item={item} key={item.id} />
+        ))}
+      </div>
 
-      {currentItems.map((item) => (
-        <ProductCard item={item} key={item.id} />
-      ))}
-
-      <div>
+      <div className="pagination">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
