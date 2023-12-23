@@ -1,4 +1,3 @@
-import productImg from "../../../assets/images/product_01.1.jpg";
 import "./CartItem.scss";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shoppingCart/cartSlice";

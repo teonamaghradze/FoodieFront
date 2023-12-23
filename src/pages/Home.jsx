@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-// import Category from "../components/UI/category/Category";
 
 import featureImg01 from "../assets/images/service-01.png";
 import featureImg02 from "../assets/images/clipboard.png";
 import featureImg03 from "../assets/images/pizzaa.png";
-import networkImg from "../assets/images/network.png";
+import networkImg from "../assets/images/testimonial3.png";
 
 import products from "../assets/data/products.js";
-import foodCategoryImg01 from "../assets/images/hamburger.png";
+
+import allIcon from "../assets/images/globe-solid.svg";
+import foodCategoryImg01 from "../assets/images/burger (1).png";
 import foodCategoryImg02 from "../assets/images/pizza.png";
-import foodCategoryImg03 from "../assets/images/bread(1).png";
+import foodCategoryImg03 from "../assets/images/salad (1).png";
 import whyImg from "../assets/images/salads.png";
 import pizza from "../assets/images/pizza-slice-solid.svg";
 import location from "../assets/images/compass-regular.svg";
@@ -92,23 +93,13 @@ function Home() {
         </p>
 
         <Link to="/foods">
-          <button>Order Now</button>
+          <button className="order-btn">Order Now</button>
         </Link>
       </section>
 
       {/* <Category /> */}
 
       <section className="serving">
-        {/* <div>
-          <h1>What we serve</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Reprehenderit aspernatur molestiae quae dicta sit deleniti nesciunt
-            voluptatem? Porro qui perferendis doloremque asperiores eveniet
-            nobis et culpa doloribus eaque. Ad, incidunt.
-          </p>
-        </div> */}
-
         <div className="serving-bottom">
           {featureData.map((item) => (
             <div className="serving-icon-container" key={item.desc}>
@@ -130,10 +121,13 @@ function Home() {
 
         <div className="popular-food-buttons">
           <button
-            className={`all-btn ${category === "ALL" ? "activeBtn" : ""}`}
+            className={` ${category === "ALL" ? "activeBtn" : ""}`}
             onClick={() => setCategory("ALL")}
           >
-            All
+            <div className="flex">
+              <img src={allIcon} alt="" />
+              <span>All</span>
+            </div>
           </button>
 
           <button

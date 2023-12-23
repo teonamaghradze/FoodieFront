@@ -1,15 +1,30 @@
+@import "../../../common.scss";
+
 .cart-container {
-  background-color: pink;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   width: 500px;
   position: absolute;
-  top: 5%;
   right: 0;
-  padding: 50px;
-  font-size: 20px;
-  gap: 15px;
-  display: flex;
-  flex-direction: column;
-  button {
-    margin-top: 40px;
+  padding: 20px;
+  .no-items {
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+  }
+  .amount {
+    font-size: 15px;
+    margin-bottom: 15px;
+    span {
+      color: $main-green;
+    }
+  }
+
+  .checkout {
+    background-color: $main-red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
   }
 }

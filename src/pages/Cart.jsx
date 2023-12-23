@@ -9,7 +9,7 @@ function Cart() {
 
   return (
     <div>
-      <CommonSection title="Your Cart" />
+      <CommonSection title="Your Shopping Cart" />
       <section>
         <div>
           {cartItems.length === 0 ? (

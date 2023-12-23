@@ -11,20 +11,19 @@ function Carts() {
     <section className="cart-container">
       <div>
         {cartProducts.length === 0 ? (
-          <h6>No items are added yet</h6>
+          <h6 className="no-items">No items are added yet</h6>
         ) : (
           cartProducts.map((item, i) => <CartItem item={item} key={i} />)
         )}
       </div>
 
       <div>
-        <h6>
+        <h6 className="amount">
           subtotal amount: <span>${totalAmount}</span>
         </h6>
-        <button>
-          <Link to="/checkout"></Link>
-          Checkout
-        </button>
+        <Link to="/checkout">
+          <button className="checkout">Checkout</button>
+        </Link>
       </div>
     </section>
   );
