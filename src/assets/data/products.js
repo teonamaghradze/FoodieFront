@@ -18,9 +18,6 @@ import product_05_image_01 from "../images/product_04.jpg";
 import product_05_image_02 from "../images/product_08.jpg";
 import product_05_image_03 from "../images/product_09.jpg";
 
-import product_06_image_02 from "../images/bread(2).png";
-import product_06_image_03 from "../images/bread(3).png";
-
 import pizza7 from "../images/pizza-7.png";
 import pizza7_1 from "../images/pizza-7.1.png";
 import pizza7_2 from "../images/pizza-7.2.png";
