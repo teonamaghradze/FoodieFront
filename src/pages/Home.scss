@@ -1,5 +1,10 @@
 @import "../common.scss";
 
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 .activeBtn {
   // color: $main-red !important;
   border: 1px solid red;

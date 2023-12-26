@@ -2,9 +2,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+
   /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
@@ -12,7 +10,6 @@ body {
   color: rgb(74, 74, 74);
   font-display: swap;
 
-  /* margin: 0 5rem; */
   overflow-x: hidden;
 }
 
@@ -33,12 +30,8 @@ a {
 }
 
 button {
-  /* background-color: #0f9595; */
-  /* background-color: #da5036; */
   background: none;
   border: none;
-  /* padding: 10px; */
-  /* border-radius: 5px; */
-  /* color: white; */
+
   cursor: pointer;
 }
