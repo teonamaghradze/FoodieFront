@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { cartUiActions } from "../../store/shoppingCart/cartUiSlice";
 
+import Carts from "../UI/cart/Carts";
+
 const navLinks = [
   {
     display: "Home",
@@ -19,10 +21,10 @@ const navLinks = [
     display: "Cart",
     path: "/cart",
   },
-  {
-    display: "Contact",
-    path: "/contact",
-  },
+  // {
+  //   display: "Contact",
+  //   path: "/contact",
+  // },
 ];
 
 function Header() {
@@ -61,6 +63,8 @@ function Header() {
         </Link>
         <span className="cart-quantity">{totalQuantity}</span>
       </div>
+
+      {/* <Carts /> */}
     </nav>
   );
 }

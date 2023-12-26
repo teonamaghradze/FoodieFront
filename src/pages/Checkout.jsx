@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CommonSection from "../components/UI/common-section/CommonSection";
+import "./Checkout.scss";
 import { useState } from "react";
 
 function Checkout() {
@@ -33,11 +33,11 @@ function Checkout() {
   }
 
   return (
-    <div>
-      <CommonSection title="Checkout" />
-      <div>
-        <h6>Shipping address</h6>
+    <>
+      <h1 className="checkout-header">Checkout</h1>
+      <div className="checkout">
         <form onSubmit={handleSubmit}>
+          <h5>Shipping Information</h5>
           <div>
             <input
               type="text"
@@ -86,14 +86,15 @@ function Checkout() {
               onChange={(e) => setEnterNumber(e.target.value)}
             />
           </div>
-        <button>Payment</button>
+          <button>Payment</button>
         </form>
-
-        <h5>Subtotal: ${cartTotalAmount}</h5>
-        <h5>Shipping: ${shippingCost}</h5>
-        <h5>Total: ${totalAmount}</h5>
+        <div className="prices">
+          <h5>Subtotal: ${cartTotalAmount}</h5>
+          <h5>Shipping: ${shippingCost}</h5>
+          <h5>Total: ${totalAmount}</h5>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
