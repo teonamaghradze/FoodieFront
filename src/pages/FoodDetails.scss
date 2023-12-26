@@ -1,3 +1,131 @@
+@import "../common.scss";
+
 .active-tab {
-  color: red;
+  color: $main-red;
+  text-decoration: underline;
+}
+
+.food-details {
+  .details {
+    display: flex;
+    // align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+
+    .images {
+      display: flex;
+      align-items: center;
+
+      .side-images {
+        img {
+          width: 100px;
+        }
+      }
+
+      .main-img {
+        img {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  .food-details-txt {
+    h2 {
+      margin-bottom: 10px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    span {
+      color: $main-green;
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      font-style: italic;
+      margin-bottom: 50px;
+    }
+
+    button {
+      border: 1px solid $main-green;
+      font-weight: bold;
+      background: none;
+      color: rgb(100, 100, 100);
+      padding: 10px;
+      border-radius: 5px;
+      &:hover {
+        border: 1px solid $light-green;
+      }
+    }
+  }
+
+  .food-details-footer {
+    margin-left: 30px;
+
+    .tabs {
+      margin-top: 50px;
+      display: flex;
+      gap: 50px;
+      h4 {
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+
+    .description-txt {
+      width: 600px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .review {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 70px;
+      // align-items: center;
+      // justify-content: center;
+      margin-right: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .email {
+      width: 40%;
+    }
+
+    form {
+      width: 50%;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: $main-green;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: $light-green;
+    }
+  }
+
+  .might-like {
+    margin-left: 30px;
+  }
 }

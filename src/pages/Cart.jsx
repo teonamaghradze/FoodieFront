@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import CommonSection from "../components/UI/common-section/CommonSection";
+
 import { cartActions } from "../store/shoppingCart/cartSlice";
 import { Link } from "react-router-dom";
 import "./Cart.scss";

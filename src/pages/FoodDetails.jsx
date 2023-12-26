@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import products from "../assets/data/products";
 import { useParams } from "react-router-dom";
-import CommonSection from "../components/UI/common-section/CommonSection";
 import "./FoodDetails.scss";
 import ProductCard from "../components/UI/product-card/ProductCard";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/shoppingCart/cartSlice";
+import Slider from "react-slick";
 
 function FoodDetails() {
   const [tab, setTab] = useState("desc");
@@ -38,72 +38,71 @@ function FoodDetails() {
     setPreviewImg(product.image01);
   }, [product]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [product]);
-
   function handleSubmit(e) {
     e.preventDefault();
     console.log(enteredName, enteredEmail, reviewMessage);
   }
 
-  return (
-    <>
-      <div style={{ display: "flex" }}>
-        <CommonSection title={product.title} />
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+  };
 
-        <section
-          style={{ display: "flex", alignItems: "center" }}
-          className="images"
-        >
+  return (
+    <div className="food-details">
+      <section className="details">
+        <section className="images">
           <div className="side-images">
             <div onClick={() => setPreviewImg(product.image01)}>
-              <img style={{ width: "100px" }} src={product.image01} alt="" />
+              <img src={product.image01} alt="" />
             </div>
             <div onClick={() => setPreviewImg(product.image02)}>
-              <img style={{ width: "100px" }} src={product.image02} alt="" />
+              <img src={product.image02} alt="" />
             </div>
             <div onClick={() => setPreviewImg(product.image03)}>
-              <img style={{ width: "100px" }} src={product.image03} alt="" />
+              <img src={product.image03} alt="" />
             </div>
           </div>
 
           <div className="main-img">
             <div>
-              <img style={{ width: "300px" }} src={previewImg} alt="" />
+              <img src={previewImg} alt="" />
             </div>
           </div>
         </section>
-        <section>
-          <div>
-            <h2>{product.title}</h2>
-            <span>${product.price}</span>
-            <p>
-              Category: <span>{product.category}</span>
-            </p>
-            <button onClick={addItem}>Add to cart</button>
-          </div>
+        <section className="food-details-txt">
+          <h2>{product.title}</h2>
+          <span>${product.price}</span>
+          <p>
+            Category: <span>{product.category}</span>
+          </p>
+          <button onClick={addItem}>Add to cart</button>
         </section>
-      </div>
-      <section>
-        <h6
-          className={`${tab === "desc" ? "active-tab" : ""}`}
-          onClick={() => setTab("desc")}
-        >
-          Description
-        </h6>
-        <h6
-          className={`${tab === "review" ? "active-tab" : ""}`}
-          onClick={() => setTab("review")}
-        >
-          review
-        </h6>
+      </section>
+      <section className="food-details-footer">
+        <div className="tabs">
+          <h4
+            className={`${tab === "desc" ? "active-tab" : ""}`}
+            onClick={() => setTab("desc")}
+          >
+            Description
+          </h4>
+          <h4
+            className={`${tab === "review" ? "active-tab" : ""}`}
+            onClick={() => setTab("review")}
+          >
+            review
+          </h4>
+        </div>
 
         {tab === "desc" ? (
-          <p>{product.desc}</p>
+          <p className="description-txt">{product.desc}</p>
         ) : (
-          <div>
-            <div className="review">
+          <section className="review">
+            <div className="email">
               <p>Teona Maghradze</p>
               <p>mail@mail.com</p>
               <p>Great product</p>
@@ -132,17 +131,19 @@ function FoodDetails() {
                 <button type="submit">Submit</button>
               </form>
             </div>
-          </div>
+          </section>
         )}
       </section>
 
-      <div>
-        <h2>You might also like</h2>
+      <h2 className="might-like">You might also like</h2>
+      <Slider {...settings}>
         {relatedFood.map((item) => (
-          <ProductCard item={item} key={item.id} />
+          <div key={item.id}>
+            <ProductCard item={item} />
+          </div>
         ))}
-      </div>
-    </>
+      </Slider>
+    </div>
   );
 }
 
