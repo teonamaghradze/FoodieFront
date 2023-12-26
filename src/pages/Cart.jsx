@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { cartActions } from "../store/shoppingCart/cartSlice";
 import { Link } from "react-router-dom";
+import "./Cart.scss";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -9,8 +10,8 @@ function Cart() {
 
   return (
     <div>
-      <CommonSection title="Your Shopping Cart" />
-      <section>
+      <section className="cart-section">
+        <h1>Your Shopping Cart</h1>
         <div>
           {cartItems.length === 0 ? (
             <h5>Your Cart is empty</h5>

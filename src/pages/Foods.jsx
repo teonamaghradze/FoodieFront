@@ -3,6 +3,7 @@ import products from "../assets/data/products";
 import ProductCard from "../components/UI/product-card/ProductCard";
 import { useState } from "react";
 import "./Foods.scss";
+import allfoods from "../assets/images/allfoods.jpg";
 
 function Foods() {
   const [filteredInputFood, setFilteredInputFood] = useState(products);
@@ -47,7 +48,9 @@ function Foods() {
 
   return (
     <div>
-      <CommonSection title="All Foods" />
+      <div className="allfoods">
+        <h1>All Foods</h1>
+      </div>
 
       <div className="filters">
         <section>
@@ -77,7 +80,7 @@ function Foods() {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          Prev
         </button>
         <span>{currentPage}</span>
         <button
