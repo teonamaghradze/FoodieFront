@@ -10,7 +10,7 @@ function Cart() {
 
   return (
     <div>
-      <section style={{ marginLeft: "30px" }} className="cart-section">
+      <section className="cart-section">
         <h1>Your Shopping Cart</h1>
         <div>
           {cartItems.length === 0 ? (

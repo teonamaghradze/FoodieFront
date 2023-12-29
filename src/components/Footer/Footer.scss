@@ -30,6 +30,11 @@ footer {
   margin-bottom: 10px;
   width: 300px;
   line-height: 1.7;
+  display: block;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .socials img {

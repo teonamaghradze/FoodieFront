@@ -2,3 +2,21 @@ $main-green: #0f9595;
 $light-green: #b2dcdc;
 $lighter-green: #d3fbfb;
 $main-red: #da5036;
+
+@mixin desktop {
+  @media (max-width: 1520px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
