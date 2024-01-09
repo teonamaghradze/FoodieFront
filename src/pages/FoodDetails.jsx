@@ -48,25 +48,21 @@ function FoodDetails() {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
-    // centerMode: true,
+    slidesToScroll: 4,
 
     responsive: [
       {
         breakpoint: 1150,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
-          // centerMode: true,
-          // leftPadding: "5%",
+          slidesToScroll: 3,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          // centerMode: true,
+          slidesToScroll: 2,
         },
       },
       {
@@ -74,7 +70,6 @@ function FoodDetails() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          // centerMode: true,
         },
       },
     ],
@@ -165,6 +160,7 @@ function FoodDetails() {
       </section>
 
       <h2 className="might-like">You might also like</h2>
+
       <Slider {...settings}>
         {relatedFood.map((item) => (
           <div key={item.id}>

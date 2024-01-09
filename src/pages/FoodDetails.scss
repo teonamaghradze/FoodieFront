@@ -6,6 +6,7 @@
 }
 
 .food-details {
+  overflow-x: hidden;
   .details {
     display: flex;
     // align-items: center;
@@ -147,4 +148,23 @@
   .might-like {
     margin-left: 30px;
   }
+}
+
+// .slick-slider {
+//   text-align: center;
+// }
+
+// .slick-list {
+//   display: inline-block;
+// }
+
+// .slick-track {
+//   display: inline-block !important;
+// }
+
+.slick-slide {
+  // margin-left: 5px;
+  // display: inline-block !important;
+  // margin-left: 10px !important;
+  // float: center !important;
 }
