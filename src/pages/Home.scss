@@ -26,10 +26,18 @@ body {
   padding-top: 100px;
   padding-bottom: 200px;
 
+  @include mobile {
+    padding-left: 40px;
+  }
+
   h5 {
     font-size: 50px;
     width: 50%;
     margin-bottom: 20px;
+
+    @include mobile {
+      width: 100%;
+    }
 
     span {
       color: $main-red;
@@ -58,6 +66,10 @@ body {
 
       @include tablet {
         width: 70%;
+      }
+
+      @include mobile {
+        width: 90%;
       }
     }
   }
@@ -142,7 +154,7 @@ body {
   max-width: 613px;
   border-radius: 51px;
   padding: 10px;
-  margin-bottom: 100px;
+  // margin-bottom: 0px;
   img {
     width: 20px;
     height: 20px;
@@ -159,6 +171,7 @@ body {
     font-weight: bold;
     border: 2px solid $main-red;
     padding: 10px;
+    margin-bottom: 20px;
   }
   .all-btn {
     padding-top: 22px;
@@ -168,6 +181,10 @@ body {
     display: flex;
     align-items: flex-end;
     gap: 10px;
+  }
+
+  @include mobile {
+    flex-wrap: wrap;
   }
 }
 

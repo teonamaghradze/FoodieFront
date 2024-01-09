@@ -6,7 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { cartUiActions } from "../../store/shoppingCart/cartUiSlice";
 
-import Carts from "../UI/cart/Carts";
+import bars from "../../assets/images/bars-solid.svg";
+import { useState } from "react";
 
 const navLinks = [
   {
@@ -21,18 +22,31 @@ const navLinks = [
     display: "Cart",
     path: "/cart",
   },
-  // {
-  //   display: "Contact",
-  //   path: "/contact",
-  // },
 ];
+
+function NavLinks({ className }) {
+  return (
+    <div className={className}>
+      {navLinks.map((item, i) => (
+        <NavLink to={item.path} key={item.path}>
+          {item.display}
+        </NavLink>
+      ))}
+    </div>
+  );
+}
 
 function Header() {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
+  };
+
+  const handleBurgerClick = () => {
+    setIsOpen((prev) => !prev);
   };
 
   return (
@@ -48,20 +62,20 @@ function Header() {
 
       {/* MEnU */}
 
-      <div className="menu active">
-        {navLinks.map((item, i) => (
-          <NavLink to={item.path} key={item.path}>
-            {item.display}
-          </NavLink>
-        ))}
-      </div>
+      <NavLinks className="menu active" />
 
       {/* RIGHT ICONS */}
-      <div>
-        <Link>
-          <img className="cart-logo" onClick={toggleCart} src={cart} alt="" />
-        </Link>
-        <span className="cart-quantity">{totalQuantity}</span>
+      <div className="burger-cart-container">
+        <div className="burger-menu" onClick={handleBurgerClick}>
+          <img src={bars} alt="" />
+        </div>
+        {isOpen && <NavLinks className="mobile-nav" />}
+        <div>
+          <Link>
+            <img className="cart-logo" onClick={toggleCart} src={cart} alt="" />
+          </Link>
+          <span className="cart-quantity">{totalQuantity}</span>
+        </div>
       </div>
 
       {/* <Carts /> */}

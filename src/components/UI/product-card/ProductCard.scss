@@ -44,6 +44,10 @@
     right: 99px;
     img {
       width: 180px;
+
+      @include mobile {
+        width: 150px;
+      }
     }
   }
   .title {
