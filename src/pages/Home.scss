@@ -37,6 +37,8 @@ body {
 
     @include mobile {
       width: 100%;
+      font-size: 40px;
+      line-height: 1.5;
     }
 
     span {
@@ -56,6 +58,8 @@ body {
 
     @include tablet {
       width: 100%;
+      font-size: 25px;
+      line-height: 1.5;
     }
 
     ~ p {

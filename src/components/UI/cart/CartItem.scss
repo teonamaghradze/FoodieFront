@@ -1,3 +1,5 @@
+@import "../../../common.scss";
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -9,6 +11,10 @@
   img {
     max-width: 80px;
     margin-right: 10px;
+
+    @include mobile {
+      max-width: 40px;
+    }
   }
 
   div {
@@ -19,6 +25,10 @@
       font-size: 1.2rem;
       width: 200px;
       font-size: 16px;
+
+      @include mobile {
+        width: 153px;
+      }
     }
 
     .quantity-price {

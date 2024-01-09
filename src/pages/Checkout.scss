@@ -9,6 +9,10 @@
   align-items: center;
   gap: 100px;
 
+  @include mobile {
+    flex-direction: column;
+  }
+
   .prices {
     background-color: #fff;
     padding: 20px;

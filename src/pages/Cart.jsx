@@ -60,7 +60,7 @@ const Tr = (props) => {
   return (
     <tr>
       <td>
-        <img style={{ width: "100px" }} src={image01} alt="" />
+        <img src={image01} alt="" />
       </td>
       <td>{title}</td>
       <td>${price}</td>

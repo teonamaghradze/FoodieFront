@@ -13,6 +13,11 @@
     margin-top: 50px;
     margin-left: 50px;
 
+    @include mobile {
+      flex-direction: column;
+      margin-left: 17px;
+    }
+
     .images {
       display: flex;
       align-items: center;
@@ -26,6 +31,10 @@
       .main-img {
         img {
           width: 300px;
+
+          @include mobile {
+            width: 213px;
+          }
         }
       }
     }
@@ -74,7 +83,7 @@
     }
 
     .description-txt {
-      width: 600px;
+      max-width: 600px;
       line-height: 1.7;
       font-size: 16px;
     }
@@ -85,20 +94,30 @@
       align-items: center;
       margin-top: 40px;
       margin-bottom: 70px;
-      // align-items: center;
-      // justify-content: center;
+
       margin-right: 30px;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
+
+      @include mobile {
+        flex-direction: column;
+      }
     }
 
     .email {
       width: 40%;
+      @include mobile {
+        width: 100%;
+      }
     }
 
     form {
       width: 50%;
+
+      @include mobile {
+        width: 100%;
+      }
     }
 
     input,

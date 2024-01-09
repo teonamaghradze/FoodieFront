@@ -49,6 +49,35 @@ function FoodDetails() {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
+    // centerMode: true,
+
+    responsive: [
+      {
+        breakpoint: 1150,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          // centerMode: true,
+          // leftPadding: "5%",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          // centerMode: true,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          // centerMode: true,
+        },
+      },
+    ],
   };
 
   return (
